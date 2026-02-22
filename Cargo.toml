@@ -1,0 +1,41 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bincode = "1"
+
+# Encryption
+aes-gcm = "0.10"
+argon2 = "0.5"
+
+# Randomness (WASM-compatible with wasm_js feature)
+getrandom = "0.2"
+
+# HTTP
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+# Date/Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Error handling
+thiserror = "2"
+
+# Unique IDs
+uuid = { version = "1", features = ["v4", "serde"] }
+
+# Async
+async-trait = "0.1"
+tokio = { version = "1", features = ["full"] }
+
+# Yahoo Finance (stocks)
+yahoo_finance_api = "4"
+time = "0.3"
